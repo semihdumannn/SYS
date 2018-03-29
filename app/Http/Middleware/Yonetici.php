@@ -16,7 +16,7 @@ class Yonetici
      */
     public function handle($request, Closure $next)
     {
-        if ( Auth::check() && Auth::user()->yonetici_mi ){
+        if ( Auth::check() && Auth::user()->yonetici_mi() ){
             return $next($request);
         }else{
             return redirect()->route('login');

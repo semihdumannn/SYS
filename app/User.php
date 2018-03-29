@@ -27,11 +27,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['adi'];
+
     public function yonetici_mi()
     {
         if ($this->rutbe == 1)
             return true;
         else
             return false;
+    }
+
+    public function getAdiAttribute()
+    {
+        return $this->name.' '.$this->surname;
     }
 }
